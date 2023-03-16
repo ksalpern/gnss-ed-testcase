@@ -38,9 +38,17 @@ const Lesson = () => {
         <>
           <h1>{lesson.title}</h1>
           <p>{lesson.description}</p>
-          <div>
-            <img src={lesson.previewImageLink + '/1.webp'} alt="" />
-          </div>
+          <ul>
+            <h2>Список уроків:</h2>
+            {lesson.lessons?.map(item => (
+              <li key={item.id}>
+                <h3>{item.title}</h3>
+                <div className="w-[300px]">
+                  <img src={item.previewImageLink + '/' + item.order + '.webp'} alt={item.title} />
+                </div>
+              </li>
+            ))}
+          </ul>
         </>
       )
 

@@ -25,11 +25,11 @@
 
 
   h1 {
-    @apply font-extrabold text-center text-xl  md:text-3xl lg:text-4xl xl:text-5xl;
+    @apply font-extrabold  text-xl  md:text-3xl lg:text-4xl xl:text-5xl;
   }
 
   h2{
-    @apply text-center text-xl  font-bold mb-10 md:mb-16;
+    @apply  text-xl  font-bold ;
   }
 
   h3{
@@ -37,7 +37,7 @@
   }
 
   h4{
-    @apply text-center font-semibold text-base  mb-3 md:mb-6
+    @apply font-semibold text-base  mb-3 md:mb-6
   }
  .customContainer{
     @apply px-3

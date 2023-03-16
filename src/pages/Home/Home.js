@@ -56,7 +56,7 @@ const Home = () => {
             <h2 className="text-xl">{lesson.title}</h2>
             <ul>
               {lesson.meta.skills?.map((skill) => (
-                <li>{skill}</li>
+                <li key={skill}>{skill}</li>
               ))}
             </ul>
             <div className="">

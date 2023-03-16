@@ -8,17 +8,17 @@ const Pagination = ({ coursesPerPage, totalCourses, paginate }) => {
   }
 
   return (
-    <div>
-      <ul>
+    <>
+      <ul className="flex gap-4">
         {pageNumbers.map((number) => (
-          <li>
+          <li key={number}>
             <a href="#"
               onClick={() => paginate(number)}
             >{number}</a>
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 
