@@ -50,17 +50,21 @@ const Home = () => {
       home
       {currentCourse.map((lesson) => (
         <Link key={lesson.id} to={`/${lesson.id}`}>
+          <div className="">
+            <img className="w-96 h-96" src={lesson.previewImageLink} alt={lesson.description} />
+          </div>
+          <div className="">
+            <h2 className="text-xl">{lesson.title}</h2>
+            <ul>
+              {lesson.meta.skills?.map((skill) => (
+                <li>{skill}</li>
+              ))}
+            </ul>
             <div className="">
-              <img className="w-96 h-96" src={lesson.previewImageLink} alt={lesson.description} />
+              <p>Кількість уроків: <span className="font-medium">{lesson.lessonsCount}</span></p>
+              <p>Рейтинг: <span>{lesson.rating}</span></p>
             </div>
-            <div className="">
-              <h2 className="text-xl">{lesson.title}</h2>
-              <ul>
-                {lesson.meta.skills?.map((skill) => (
-                  <li>{skill}</li>
-                ))}
-              </ul>
-            </div>
+          </div>
         </Link>
       ))}
       <Pagination
