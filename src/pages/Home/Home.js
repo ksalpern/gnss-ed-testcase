@@ -41,7 +41,7 @@ const Home = () => {
     <main className="py-4 customContainer grid grid-cols-1 md:grid-cols-2 gap-3">
       {currentCourse.map((lesson) => (
         <Link className="grid" key={lesson.id} to={`/${lesson.id}`}>
-          <div className="border border-[#01B7C5] bg-[#2C2F48]  bg-opacity-50 rounded-3xl overflow-hidden p-3 hover:bg-opacity-70 duration-200 text-white">
+          <div className="border border-[#01B7C5] bg-[#2C2F48]  bg-opacity-50 rounded-3xl overflow-hidden p-3 hover:bg-opacity-70 duration-200 ">
             <div className="w-full mb-2">
               <img
                 className="rounded"

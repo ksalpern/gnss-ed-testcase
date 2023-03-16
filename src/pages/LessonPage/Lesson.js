@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { requestOptions } from '../../api/api';
+import Hls from 'hls.js';
 
 const Lesson = () => {
   const { courseId } = useParams()
@@ -19,6 +20,24 @@ const Lesson = () => {
         const result = await response.json();
         setLoading(false)
         setLesson(result);
+        if (result?.lessons?.length) {
+          const video = document.querySelector('video');
+          if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(result.lessons[0].link);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+              video.play();
+            });
+          } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = result.lessons[0].link;
+            video.addEventListener('loadedmetadata', function () {
+              video.play();
+            });
+          }
+        }
+
+
       } catch (error) {
         console.log("error", error);
       }
@@ -35,22 +54,24 @@ const Lesson = () => {
   return (
     <div>
       {lesson && (
-        <>
+        <div className='customContainer' >
           <h1>{lesson.title}</h1>
           <p>{lesson.description}</p>
-          <img src={lesson.meta.courseVideoPreview.previewImageLink+'/' + 1 + '.webp'}></img>
+          {/* <img src={lesson.meta.courseVideoPreview.previewImageLink + '/' + 1 + '.webp'}></img> */}
           <ul>
-            <h2>Список уроків:</h2>
+            <h2>list of lessons:</h2>
             {lesson.lessons?.map(item => (
               <li key={item.id}>
                 <h3>{item.title}</h3>
+
                 <div className="w-[300px]">
-                  <img src={item.previewImageLink + '/' + item.order + '.webp'} alt={item.title} />
+                  {/* <img src={item.previewImageLink + '/' + item.order + '.webp'} alt={item.title} /> */}
+                  <video controls preload='metadata' poster={item.previewImageLink + '/' + item.order + '.webp'} src={item.link}></video>
                 </div>
               </li>
             ))}
           </ul>
-        </>
+        </div>
       )
 
       }
