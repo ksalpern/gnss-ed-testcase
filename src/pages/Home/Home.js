@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { requestOptions } from "../../api/api";
+import Loading from "../../components/Loading/Loading";
 import Pagination from "../../components/Pagination/Pagination";
 
 const Home = () => {
@@ -34,41 +35,43 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading />
   }
 
   return (
-    <main className="py-4 customContainer grid grid-cols-1 md:grid-cols-2 gap-3">
-      {currentCourse.map((lesson) => (
-        <Link className="grid" key={lesson.id} to={`/${lesson.id}`}>
-          <div className="border border-[#01B7C5] bg-[#2C2F48]  bg-opacity-50 rounded-3xl overflow-hidden p-3 hover:bg-opacity-70 duration-200 ">
-            <div className="w-full mb-2">
-              <img
-                className="rounded"
-                src={lesson.previewImageLink + "/cover.webp"}
-                alt={lesson.description}
-              />
-            </div>
-            <div className="">
-              <h2 className="text-xl border-b">{lesson.title}</h2>
-              <div className="flex gap-3 justify-between mt-2">
-                <p>
-                  Number of lessons:{" "}
-                  <span className="font-medium">{lesson.lessonsCount}</span>
-                </p>
-                <p>
-                  Rating: <span className="font-medium">{lesson.rating}</span>
-                </p>
+    <main className="customContainer">
+      <div className="py-4 grid grid-cols-1 md:grid-cols-2 gap-3 min-h-[90vh]">
+        {currentCourse.map((lesson) => (
+          <Link className="grid" key={lesson.id} to={`/${lesson.id}`}>
+            <div className="border border-[#01B7C5] bg-[#2C2F48]  bg-opacity-50 rounded-3xl overflow-hidden p-3 hover:bg-opacity-70 duration-200 ">
+              <div className="w-full mb-2">
+                <img
+                  className="rounded"
+                  src={lesson.previewImageLink + "/cover.webp"}
+                  alt={lesson.description}
+                />
               </div>
-              <ul>
-                {lesson.meta.skills?.map((skill) => (
-                  <li key={skill}>- {skill}</li>
-                ))}
-              </ul>
+              <div className="">
+                <h2 className="text-xl border-b">{lesson.title}</h2>
+                <div className="flex gap-3 justify-between mt-2">
+                  <p>
+                    Number of lessons:{" "}
+                    <span className="font-medium">{lesson.lessonsCount}</span>
+                  </p>
+                  <p>
+                    Rating: <span className="font-medium">{lesson.rating}</span>
+                  </p>
+                </div>
+                <ul>
+                  {lesson.meta.skills?.map((skill) => (
+                    <li key={skill}>- {skill}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
       <Pagination
         coursesPerPage={coursesPerPage}
         totalCourses={courses.length}

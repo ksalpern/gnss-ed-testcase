@@ -8,8 +8,8 @@ const Pagination = ({ coursesPerPage, totalCourses, paginate }) => {
   }
 
   return (
-    <>
-      <ul className="flex gap-4">
+    <div className="block w-full">
+      <ul className="flex gap-4 justify-center">
         {pageNumbers.map((number) => (
           <li key={number}>
             <a href="#"
@@ -18,7 +18,7 @@ const Pagination = ({ coursesPerPage, totalCourses, paginate }) => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
