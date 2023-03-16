@@ -4,10 +4,10 @@ import { requestOptions } from '../../api/api';
 
 const Lesson = () => {
   const { courseId } = useParams()
-  console.log(courseId)
+  // console.log(courseId)
 
   const [lesson, setLesson] = useState(null);
-  console.log(lesson);
+  // console.log(lesson.lessons);
 
   const [loading, setLoading] = useState(false);
 
@@ -38,6 +38,7 @@ const Lesson = () => {
         <>
           <h1>{lesson.title}</h1>
           <p>{lesson.description}</p>
+          <img src={lesson.meta.courseVideoPreview.previewImageLink+'/' + 1 + '.webp'}></img>
           <ul>
             <h2>Список уроків:</h2>
             {lesson.lessons?.map(item => (

@@ -14,15 +14,7 @@ const Home = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // const prevPage = () => setCurrentPage(prev => {
-  //   if (prev === 1) {
-  //     prev = 1
-  //   }
-  //   prev - 1
-  // })
-  // const nextPage = () => setCurrentPage(prev => prev + 1)
-
-  console.log(courses);
+  // console.log(courses);
   useEffect(() => {
     const fetchCourses = async () => {
       try {
@@ -46,22 +38,33 @@ const Home = () => {
   }
 
   return (
-    <main className=" py-4 customContainer">
+    <main className="py-4 customContainer grid grid-cols-1 md:grid-cols-2 gap-3">
       {currentCourse.map((lesson) => (
-        <Link key={lesson.id} to={`/${lesson.id}`}>
-          <div className="w-[300px]">
-            <img className="" src={lesson.previewImageLink + '/cover.webp'} alt={lesson.description} />
-          </div>
-          <div className="">
-            <h2 className="text-xl">{lesson.title}</h2>
-            <ul>
-              {lesson.meta.skills?.map((skill) => (
-                <li key={skill}>{skill}</li>
-              ))}
-            </ul>
+        <Link className="grid" key={lesson.id} to={`/${lesson.id}`}>
+          <div className="border border-[#01B7C5] bg-[#2C2F48]  bg-opacity-50 rounded-3xl overflow-hidden p-3 hover:bg-opacity-70 duration-200 text-white">
+            <div className="w-full mb-2">
+              <img
+                className="rounded"
+                src={lesson.previewImageLink + "/cover.webp"}
+                alt={lesson.description}
+              />
+            </div>
             <div className="">
-              <p>Кількість уроків: <span className="font-medium">{lesson.lessonsCount}</span></p>
-              <p>Рейтинг: <span>{lesson.rating}</span></p>
+              <h2 className="text-xl border-b">{lesson.title}</h2>
+              <div className="flex gap-3 justify-between mt-2">
+                <p>
+                  Number of lessons:{" "}
+                  <span className="font-medium">{lesson.lessonsCount}</span>
+                </p>
+                <p>
+                  Rating: <span className="font-medium">{lesson.rating}</span>
+                </p>
+              </div>
+              <ul>
+                {lesson.meta.skills?.map((skill) => (
+                  <li key={skill}>- {skill}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </Link>
