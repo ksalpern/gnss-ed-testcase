@@ -4,14 +4,20 @@ import { requestOptions } from "../../api/api";
 
 const Home = () => {
   const [courses, setCourses] = useState([]);
-  // console.log(courses.courses);
+
   console.log(courses);
   useEffect(() => {
-    fetch("https://api.wisey.app/api/v1/core/preview-courses", requestOptions)
-      .then((response) => response.json())
-      .then((result) => setCourses(result.courses))
-      .catch((error) => console.log("error", error));
-      // console.log(message)
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch(`https://api.wisey.app/api/v1/core/preview-courses`, requestOptions);
+        const result = await response.json();
+        setCourses(result.courses);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    
+    fetchCourses();
   }, []);
 
   return (
