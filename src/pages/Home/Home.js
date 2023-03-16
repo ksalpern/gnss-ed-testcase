@@ -46,12 +46,11 @@ const Home = () => {
   }
 
   return (
-    <div>
-      home
+    <main className=" py-4 customContainer">
       {currentCourse.map((lesson) => (
         <Link key={lesson.id} to={`/${lesson.id}`}>
-          <div className="">
-            <img className="w-96 h-96" src={lesson.previewImageLink} alt={lesson.description} />
+          <div className="w-[300px]">
+            <img className="" src={lesson.previewImageLink + '/cover.webp'} alt={lesson.description} />
           </div>
           <div className="">
             <h2 className="text-xl">{lesson.title}</h2>
@@ -74,7 +73,7 @@ const Home = () => {
       />
       {/* <button onClick={prevPage}>Prev Page</button>
       <button onClick={nextPage}>Next Page</button> */}
-    </div>
+    </main>
   );
 };
 

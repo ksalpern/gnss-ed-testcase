@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .app {
+    @apply  min-h-screen  duration-500;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-0 md:w-1;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-300 ;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-red-700;
+  }
+
+  .customContainer {
+    @apply px-3;
+  }
+
+
+  h1 {
+    @apply font-extrabold text-center text-xl  md:text-3xl lg:text-4xl xl:text-5xl;
+  }
+
+  h2{
+    @apply text-center text-xl  font-bold mb-10 md:mb-16;
+  }
+
+  h3{
+    @apply text-lg 
+  }
+
+  h4{
+    @apply text-center font-semibold text-base  mb-3 md:mb-6
+  }
+ .customContainer{
+    @apply px-3
+ }
+}
+body{
+    background: linear-gradient(180deg, #DF2669 0%, rgba(12, 58, 226, 0.694) 100%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}

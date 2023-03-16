@@ -8,7 +8,7 @@ import Layout from "./components/Layout/Layout";
 
 function App() {
   return (
-    <div className="app">
+    <div className="app w-full max-w-7xl mx-auto ">
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Layout />}>

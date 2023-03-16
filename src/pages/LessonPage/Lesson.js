@@ -38,6 +38,9 @@ const Lesson = () => {
         <>
           <h1>{lesson.title}</h1>
           <p>{lesson.description}</p>
+          <div>
+            <img src={lesson.previewImageLink + '/1.webp'} alt="" />
+          </div>
         </>
       )
 

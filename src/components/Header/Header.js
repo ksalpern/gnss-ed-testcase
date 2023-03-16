@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header>
-      <Link to="/">Main</Link>
-      header
+    <header className="bg-[#2C2F48] py-4 text-white sticky top-0 customContainer">
+      <Link to="/">Go to home page</Link>
     </header>
   );
 };
