@@ -9,11 +9,15 @@ const Lesson = () => {
   const [lesson, setLesson] = useState(null);
   console.log(lesson);
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const fetchLesson = async () => {
       try {
+        setLoading(true)
         const response = await fetch(`https://api.wisey.app/api/v1/core/preview-courses/${courseId}`, requestOptions);
         const result = await response.json();
+        setLoading(false)
         setLesson(result);
       } catch (error) {
         console.log("error", error);
@@ -21,6 +25,12 @@ const Lesson = () => {
     }
     fetchLesson()
   }, [courseId]);
+
+  if (loading) {
+    return (
+      <p>Loading...</p>
+    )
+  }
 
   return (
     <div>
