@@ -9,9 +9,9 @@ function App() {
     <div className="app w-full max-w-7xl mx-auto text-white">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />}></Route>
-          <Route path=":courseId" element={<Lesson />}></Route>
-          <Route path="*" element={<Error />}></Route>
+          <Route index element={<Home />} />
+          <Route path=":courseId" element={<Lesson />} />
+          <Route path="*" element={<Error />} />
         </Route>
       </Routes>
     </div>

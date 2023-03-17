@@ -12,6 +12,7 @@ const Home = () => {
   const lastCourseIndex = currentPage * coursesPerPage;
   const firstCourseIndex = lastCourseIndex - coursesPerPage;
   const currentCourse = courses.slice(firstCourseIndex, lastCourseIndex);
+  // console.log(currentCourse)
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 

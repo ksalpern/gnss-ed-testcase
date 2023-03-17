@@ -2,7 +2,7 @@ import React from 'react'
 
 const Error = () => {
   return (
-    <div>
+    <div className='h-screen bg-red-600'>
       oops
     </div>
   )
