@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import Hls from 'hls.js';
+import Hls from "hls.js";
 
 const VideoPlayer = ({ src, poster }) => {
   const [playbackRate, setPlaybackRate] = useState(1);
@@ -53,16 +53,19 @@ const VideoPlayer = ({ src, poster }) => {
         onContextMenu={(event) => event.preventDefault()}
         onKeyDown={handleKeyDown}
       />
-      <div className="text-center">
-        Playback rate: {playbackRate}x
-        
-      </div>
-      <div className="flex flex-wrap gap-2 justify-center my-1 md:my-3 ">
-      <button className="btn" onClick={handlePictureInPicture}>
+
+      <div className="flex justify-center mt-3">
+        <button
+          className="btn"
+          onClick={handlePictureInPicture}
+        >
           {inPictureInPicture
             ? "Exit Picture-in-Picture"
             : "Picture-in-Picture"}
         </button>
+      </div>
+      <div className="flex flex-wrap gap-2 justify-center my-1 md:my-3 ">
+
         <button className="btn" onClick={() => handlePlaybackRateChange(0.5)}>
           0.5x
         </button>
@@ -78,9 +81,11 @@ const VideoPlayer = ({ src, poster }) => {
         <button className="btn" onClick={() => handlePlaybackRateChange(2)}>
           2x
         </button>
-        
       </div>
-      <p>Use the down ↓ and up ↑ arrow keys to adjust the video playback speed</p>
+      <div className="text-center">Playback rate: {playbackRate}x</div>
+      <p>
+        Use the down ↓ and up ↑ arrow keys to adjust the video playback speed
+      </p>
     </div>
   );
 };
