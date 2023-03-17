@@ -5,6 +5,7 @@ import Hls from "hls.js";
 import Accordion from "../../components/Accordion/Accordion";
 import Loading from "../../components/Loading/Loading";
 import Error from "../Error/Error";
+import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 
 const Lesson = () => {
   const { courseId } = useParams();
@@ -111,34 +112,50 @@ const Lesson = () => {
   return (
     <div>
       {lesson && (
-        <div className="customContainer text-[#FAFAFA] ">
-          <h1>{lesson.title}</h1>
-          <p>{lesson.description}</p>
-          {/* <p>{lesson.meta.courseVideoPreview.duration}</p> */}
-          {/* <img src={lesson.meta.courseVideoPreview.previewImageLink + '/lesson-' + 1 + '.webp'}></img> */}
-          
-            <video
+        <div className="customContainer text-[#FAFAFA]  my-2">
+          <div className="md:grid md:gap-3  md:grid-cols-2 ">
+            <div className="">
+              <h1>{lesson.title}</h1>
+              <p>{lesson.description}</p>
+              {/* <p>{lesson.meta.courseVideoPreview.duration}</p> */}
+              {/* <img src={lesson.meta.courseVideoPreview.previewImageLink + '/lesson-' + 1 + '.webp'}></img> */}
+
+              {/* <video
             className="w-full md:w-1/2"
-              controls
-              preload="metadata"
-              // poster={lesson.meta.courseVideoPreview.previewImageLink + '/lesson-' + item.order + '.webp' }
-              poster={lesson.previewImageLink}
-              // src={lesson.link}
-              // src={lesson.meta.courseVideoPreview.link}
+            controls
+            preload="metadata"
+            // poster={lesson.meta.courseVideoPreview.previewImageLink + '/lesson-' + item.order + '.webp' }
+            // poster={lesson.previewImageLink}
+            poster="https://wisey.app/assets/images/web/lessons-covers/lack-of-motivation-how-to-overcome-it/lesson-1/lesson-1.webp"
+            // src={lesson.link}
+            // src={lesson.meta.courseVideoPreview.link}
+            src="/assets/test.MP4"
+          ></video> */}
+            </div>
+            {/* <VideoPlayer
+              className="w-full md:w-1/2"
               src="/assets/test.MP4"
-            ></video>
-          {/* <video onTimeUpdate={handleTimeUpdate} controls>
+              poster="https://wisey.app/assets/images/web/lessons-covers/lack-of-motivation-how-to-overcome-it/lesson-1/lesson-1.webp"
+            /> */}
+            <VideoPlayer
+              className="w-full md:w-1/2"
+              src={lesson.meta.courseVideoPreview.link}
+              poster="https://wisey.app/assets/images/web/lessons-covers/lack-of-motivation-how-to-overcome-it/lesson-1/lesson-1.webp"
+            />
+
+            {/* <video onTimeUpdate={handleTimeUpdate} controls>
             <source src="/assets/test.MP4" type="video/mp4" />
           </video>
           <p>Progress: {progress.toFixed(2)} seconds</p> */}
-          <video
+            {/* <video
             controls
             preload="metadata"
             poster={lesson.previewImageLink}
             // src={lesson.lessons[0].link}
             src={lesson.meta.courseVideoPreview.link}
             ref={videoRef}
-          ></video>
+          ></video> */}
+          </div>
           <h2 className="mt-3">List of lessons:</h2>
           <ul className="mb-3">
             {lesson.lessons?.map((item) => (
@@ -149,7 +166,7 @@ const Lesson = () => {
 
                     <div className="w-[300px]">
                       {/* <img src={item.previewImageLink + '/lesson-' + item.order + '.webp'} alt={item.title} /> */}
-                      <video
+                      {/* <video
                         controls
                         preload="metadata"
                         ref={videoRef}
@@ -161,14 +178,24 @@ const Lesson = () => {
                         }
                         // src={item.link}
                         src="/assets/test.MP4"
-                      ></video>
-                      <video
+                      ></video> */}
+                      <VideoPlayer
+                        className="w-full md:w-1/2"
+                        src={item.link}
+                        poster={
+                          item.previewImageLink +
+                          "/lesson-" +
+                          item.order +
+                          ".webp"
+                        }
+                      />
+                      {/* <video
                         controls
                         preload="metadata"
                         ref={videoRef}
                         poster={item.previewImageLink}
                         src={item.link}
-                      ></video>
+                      ></video> */}
                       {/* <video ref={videoRef} controls poster={item.previewImageLink} src={item.link}></video> */}
                     </div>
                   </Accordion>

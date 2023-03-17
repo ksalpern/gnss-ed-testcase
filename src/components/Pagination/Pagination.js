@@ -11,10 +11,10 @@ const Pagination = ({ coursesPerPage, totalCourses, paginate }) => {
       <ul className="flex flex-wrap gap-4 justify-center mb-3">
         {pageNumbers.map((number) => (
           <li
-            className="border border-[#01B7C5] bg-[#2C2F48]  bg-opacity-50 rounded-3xl  "
+            className=" "
             key={number}
           >
-            <a href="#" className="block px-3" onClick={() => paginate(number)}>
+            <a href="#" className="btn" onClick={() => paginate(number)}>
               {number}
             </a>
           </li>
