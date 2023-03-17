@@ -7,11 +7,11 @@ Also, you will be able to see what the app looks like on my local machine [here]
 
 ## Short task description
 
-- This task required me to create a learning application with two pages: a page for courses (Home) and a page for viewing a lesson (Lesson). The [API](https://www.postman.com/aninix/workspace/genesis-front-end-school/overview) for the application is provided, and I forked it into my Postman account to work on it.
+- This task required me to create a learning application with two pages: a page for courses (Home) and a page for viewing a lesson (Lesson). The [API](https://www.postman.com/aninix/workspace/genesis-front-end-school/overview) for the application is provided, and I forked it into my **Postman** account to work on it.
 
-- The application has a good user interface, I used TailwindCSS for a fully responsive and mobile-first design but the code is the more important part here.
+- The application has a good user interface, I used **TailwindCSS** for a fully **responsive** and **mobile-first** design but the code is the more important part here.
 
-- On the course (Home) page, I displayed the last 10 courses, each containing the course title, course photo, number of lessons, skills, and rating. The page shows 10 courses and includes pagination. Additionally, when the user hovers over a course, a video without sound plays!
+- On the course (Home) page, I displayed the last 10 courses, each containing the course title, course photo, number of lessons, skills, and rating. The page shows 10 courses and includes **pagination**. Additionally, when the user hovers over a course, a video without sound plays!
 
 - On the lesson page, the first video of the course is displayed, along with course details and a list of lessons. When the user clicks on a lesson that is not locked, the current video will open and the user should understand which lesson they are viewing. If a lesson is locked, it will be shown as such to the user. Additionally, there are two additional features I implemented:
 
