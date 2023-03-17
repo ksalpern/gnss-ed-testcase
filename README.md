@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Genesis frontend testcase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Click [here](https://ksalpern-genesis-testcase.netlify.app/) to see\* working the app.
+Also you will be able to see how the app looks like on my local machine [here](https://youtu.be/qByXLYBkQtI).
 
-## Available Scripts
+\*You may need [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf) to see videos here.
 
-In the project directory, you can run:
+## Short task description
 
-### `npm start`
+- This task required me to create a learning application with two pages: a page for courses (Home) and a page for viewing a lesson (Lesson). The [API](https://www.postman.com/aninix/workspace/genesis-front-end-school/overview) for the application is provided, and I forked it into my Postman account to work on it.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- The application has a good user interface, I used TailwindCSS for a fully responsive and mobile-first design but the code is the more important part here.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- On the course (Home) page, I displayed the last 10 courses, each containing the course title, course photo, number of lessons, skills, and rating. The page shows 10 courses and includes pagination. Additionally, when the user hovers over a course, a video without sound plays!
 
-### `npm test`
+- On the lesson page, the first video of the course is displayed, along with course details and a list of lessons. When the user clicks on a lesson that is not locked, the current video will open and the user should understand which lesson they are viewing. If a lesson is locked, it will be shown as such to the user. Additionally, there are two additional features I implemented:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Picture-in-picture functionality**: the video can be displayed on top of the page when clicked, and it will stay in the same position on the page while the user navigates other pages.
+- **Changing the video playback speed through the keyboard** (use the down ↓ and up ↑ arrow keys to adjust the video playback speed) and displaying information about how to use it.
 
-### `npm run build`
+## Some issues I fased with:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- There was a problem with getting the video from API because of side effects of content migration in s3 buckets. For fixing it I used hls.js library and [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf) Chrome extention. But for the Home page I used my local video to make a videoplay on hover.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- I didn't do tests, it may cause troubles in the future
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- I weren't able to save user's progress in watching&course lesson by local storage
 
-### `npm run eject`
+## How to start the project on your local machine?
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Download or clone this repository
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install its dependencies: **yarn / npm install**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Build the project: **yarn build / npm run build**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Start the project: **yarn start / npm start**
 
-## Learn More
+5. Download [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf) if the app doesn't work
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+6. The website is now working, hope you enjoy it 😃
