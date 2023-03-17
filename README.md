@@ -1,7 +1,7 @@
-# Genesis frontend testcase
+# Genesis frontend test case
 
 Click [here](https://ksalpern-genesis-testcase.netlify.app/) to see\* working the app.
-Also you will be able to see how the app looks like on my local machine [here](https://youtu.be/qByXLYBkQtI).
+Also, you will be able to see what the app looks like on my local machine [here](https://youtu.be/qByXLYBkQtI).
 
 \*You may need [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf) to see videos here.
 
@@ -15,16 +15,17 @@ Also you will be able to see how the app looks like on my local machine [here](h
 
 - On the lesson page, the first video of the course is displayed, along with course details and a list of lessons. When the user clicks on a lesson that is not locked, the current video will open and the user should understand which lesson they are viewing. If a lesson is locked, it will be shown as such to the user. Additionally, there are two additional features I implemented:
 
-- **Picture-in-picture functionality**: the video can be displayed on top of the page when clicked, and it will stay in the same position on the page while the user navigates other pages.
-- **Changing the video playback speed through the keyboard** (use the down ↓ and up ↑ arrow keys to adjust the video playback speed) and displaying information about how to use it.
+**Picture-in-picture functionality**: the video can be displayed on top of the page when clicked, and it will stay in the same position on the page while the user navigates other pages.
 
-## Some issues I fased with:
+**Changing the video playback speed through the keyboard** (use the down ↓ and up ↑ arrow keys to adjust the video playback speed) and displaying information about how to use it.
 
-- There was a problem with getting the video from API because of side effects of content migration in s3 buckets. For fixing it I used hls.js library and [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf) Chrome extention. But for the Home page I used my local video to make a videoplay on hover.
+## Some issues I faced with:
+
+- There was a problem with getting the video from API because of the side effects of content migration in s3 buckets. For fixing it I used the hls.js library and [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf) Chrome Extention. But for the Home page, I used my local video to make a video play on hover.
 
 - I didn't do tests, it may cause troubles in the future
 
-- I weren't able to save user's progress in watching&course lesson by local storage
+- I wasn't able to save the user's progress in watching&course the lesson by local storage
 
 ## How to start the project on your local machine?
 
