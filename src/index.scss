@@ -4,7 +4,7 @@
 
 @layer base {
   .app {
-    @apply  min-h-screen  duration-500;
+    @apply min-h-screen  duration-500;
   }
 
   ::-webkit-scrollbar {
@@ -12,7 +12,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-slate-300 ;
+    @apply bg-slate-300;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -23,47 +23,76 @@
     @apply px-3;
   }
 
-
   h1 {
     @apply font-extrabold  text-xl  md:text-3xl lg:text-4xl xl:text-5xl;
   }
 
-  h2{
-    @apply  text-xl  font-bold pb-2;
+  h2 {
+    @apply text-xl  font-bold pb-2;
   }
 
-  h3{
-    @apply text-lg 
+  h3 {
+    @apply text-lg;
   }
 
-  h4{
-    @apply font-semibold text-base  mb-3 md:mb-6
+  h4 {
+    @apply font-semibold text-base  mb-3 md:mb-6;
   }
-  p{
-    @apply mb-2 md:text-lg
+  p {
+    @apply mb-2 md:text-lg;
   }
 
- .customContainer{
-    @apply px-3
- }
- .btn{
-    @apply border border-[#01B7C5] bg-[#2C2F48]  bg-opacity-50 rounded-3xl block px-2 hover:scale-110 duration-150
- }
+  .customContainer {
+    @apply px-3;
+  }
+  .btn {
+    @apply border border-[#01B7C5] bg-[#2C2F48]  bg-opacity-50 rounded-3xl block px-2 hover:scale-110 duration-150;
+  }
 }
 
-body{
+body {
   height: 100%;
-  background: linear-gradient(180deg, #DF2669 0%, rgba(12, 58, 226, 0.694) 100%);
+  background: linear-gradient(
+    180deg,
+    #df2669 0%,
+    rgba(12, 58, 226, 0.694) 100%
+  );
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  background-attachment:fixed
+  background-attachment: fixed;
 }
-.app{
+.app {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
-main{
+main {
   flex: 1 1 auto;
 }
 
+.courseCard {
+  position: relative;
+  .videoHover {
+    .hover-component {
+      top: 0;
+      left: 0;
+      display: none;
+      width: 100%;
+    }
+    &:hover {
+      img{
+        display: none;
+      }
+      .hover-component {
+        border-radius: 4px;
+        display: block;
+      }
+    }
+  }
 
+  // .hover-component {
+  //   display: none;
+  //   height: 0;
+  //   width: 0;
+  //   overflow: hidden;
+  // }
+}

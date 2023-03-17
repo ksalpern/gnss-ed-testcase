@@ -5,6 +5,7 @@ const VideoPlayer = ({ src, poster }) => {
   const [playbackRate, setPlaybackRate] = useState(1);
   const videoRef = useRef(null);
   const [inPictureInPicture, setInPictureInPicture] = useState(false);
+  // const [currentTime, setCurrentTime] = useState(0);
 
   const handlePlaybackRateChange = (newRate) => {
     setPlaybackRate(newRate);
@@ -20,16 +21,6 @@ const VideoPlayer = ({ src, poster }) => {
     }
   };
 
-  useEffect(() => {
-    const video = videoRef.current;
-    const hls = new Hls();
-    hls.loadSource(src);
-    hls.attachMedia(video);
-    return () => {
-      hls.destroy();
-    };
-  }, []);
-
   const handleKeyDown = (event) => {
     switch (event.key) {
       case "ArrowUp":
@@ -43,6 +34,37 @@ const VideoPlayer = ({ src, poster }) => {
     }
   };
 
+  useEffect(() => {
+    const video = videoRef.current;
+    const hls = new Hls();
+    hls.loadSource(src);
+    hls.attachMedia(video);
+    return () => {
+      hls.destroy();
+    };
+  }, []);
+
+  //updates video time
+  // const handleTimeUpdate = () => {
+  //   const video = videoRef.current;
+  //   setCurrentTime(video.currentTime);
+  //   localStorage.setItem("video-progress", JSON.stringify({ src, currentTime }));
+  // };
+
+
+  //sets current time of watched video
+  // useEffect(() => {
+  //   const storedProgress = localStorage.getItem("video-progress");
+  //   if (storedProgress) {
+  //     const { src: storedSrc, currentTime: storedCurrentTime } = JSON.parse(storedProgress);
+  //     if (src === storedSrc) {
+  //       videoRef.current.currentTime = storedCurrentTime;
+  //       setCurrentTime(storedCurrentTime);
+  //     }
+  //   }
+  // }, [src]);
+
+
   return (
     <div>
       <video
@@ -52,6 +74,7 @@ const VideoPlayer = ({ src, poster }) => {
         controls
         onContextMenu={(event) => event.preventDefault()}
         onKeyDown={handleKeyDown}
+        // onTimeUpdate={handleTimeUpdate}
       />
 
       <div className="flex justify-center mt-3">
@@ -86,6 +109,7 @@ const VideoPlayer = ({ src, poster }) => {
       <p>
         Use the down ↓ and up ↑ arrow keys to adjust the video playback speed
       </p>
+      {/* <div>Current time: {currentTime.toFixed(2)}</div> */}
     </div>
   );
 };

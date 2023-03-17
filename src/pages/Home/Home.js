@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { requestOptions } from "../../api/api";
+import HoverComponent from "../../components/HoverVideo/HoverVideo";
 import Loading from "../../components/Loading/Loading";
 import Pagination from "../../components/Pagination/Pagination";
 
@@ -43,14 +44,23 @@ const Home = () => {
     <main className="customContainer">
       <div className="py-4 grid grid-cols-1 md:grid-cols-2 gap-3 min-h-[90vh]">
         {currentCourse.map((lesson) => (
-          <Link className="grid" key={lesson.id} to={`/${lesson.id}`}>
+          <Link className="grid courseCard" key={lesson.id} to={`/${lesson.id}`}>
             <div className="border border-[#01B7C5] bg-[#2C2F48]  bg-opacity-50 rounded-3xl overflow-hidden p-3 hover:bg-opacity-70 duration-200 ">
-              <div className="w-full mb-2">
+              <div className="w-full mb-2 videoHover">
                 <img
                   className="rounded"
                   src={lesson.previewImageLink + "/cover.webp"}
                   alt={lesson.description}
                 />
+                <video className='hover-component'  loop autoPlay muted 
+                src='/assets/test.mp4'
+                // src={lesson.meta.courseVideoPreview.previewImageLink}
+                // ref={videoRef}
+                ></video>
+                {/* <HoverComponent classProp='hover-component'
+                 src={lesson.meta.courseVideoPreview.previewImageLink}
+                // src='/assets/test.mp4'
+                 /> */}
               </div>
               <div className="">
                 <h2 className="text-xl border-b">{lesson.title}</h2>

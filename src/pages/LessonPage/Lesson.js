@@ -71,7 +71,6 @@ const Lesson = () => {
                           ".webp"
                         }
                       />
-
                     </div>
                   </Accordion>
                 )}
